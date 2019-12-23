@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome CDC</title>
+</head>
+<body>
+<h3>Login</h3>
+<span th:if="${errorMessage != null}" th:text="${errorMessage}">error message</span>
+<form action="#" th:action="@{/validate-account}" th:object="${accountWrapper}" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Account Number</label></td>
+            <td>
+                <input type="text" th:field="*{accountNumber}" id="account-number" placeholder="Account Number">
+                <span th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="pin">PIN</label></td>
+            <td>
+                <input type="text" th:field="*{pin}" id="pin" placeholder="PIN">
+                <span th:if="${#fields.hasErrors('pin')}" th:errors="*{pin}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome CDC</title>
+</head>
+<body>
+<h3>Welcome <span th:if="${name != null}" th:text="${name}">error message</span></h3>
+<table>
+    <tr>
+        <td>Transaction</td>
+    </tr>
+    <tr>
+        <td>1. Withdraw</td>
+    </tr>
+    <tr>
+        <td>2. Fund Transfer</td>
+    </tr>
+    <tr>
+        <td>3. Exit</td>
+    </tr>
+</table>
+</body>
+</html>
