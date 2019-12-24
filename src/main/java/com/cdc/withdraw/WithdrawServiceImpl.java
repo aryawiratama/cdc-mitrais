@@ -41,7 +41,7 @@ public class WithdrawServiceImpl implements WithdrawService {
                 acc.setBalance(balance);
                 accountDAO.save(acc);
             }else {
-                throw new InsufficientFundException("Insufficent Fund");
+                throw new InsufficientFundException("Insufficent Balance $"+amount );
             }
         }
         return withdraw;

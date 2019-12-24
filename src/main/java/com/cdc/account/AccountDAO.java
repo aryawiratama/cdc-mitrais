@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface AccountDAO extends PagingAndSortingRepository<Account, String> {
 
     Optional<Account> findAccountByAccountNumberAndPin(String accountNumber, String pin);
+
+    Optional<Account> findAccountByAccountNumber(String accountNumber);
 }

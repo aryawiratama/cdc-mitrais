@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome CDC</title>
+</head>
+<body>
+<h3>Fund Transfer</h3>
+<span th:if="${errorMessage != null}" th:text="${errorMessage}">error message</span>
+<form action="#" th:action="@{/fund-transfer}" th:object="${fundTransferWrapper}" method="post">
+    <span><input type="hidden" th:field="*{accountFrom}" id="account-from" th:value="${accountFrom}"></span>
+    <table>
+        <tr>
+            <td><label for="destination-account">Destination Account</label></td>
+            <td>
+                <input type="text" th:field="*{accountTo}" id="account-to" placeholder="Destination Account">
+                <span th:if="${#fields.hasErrors('accountTo')}" th:errors="*{accountTo}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="amount">Transfer Amount</label></td>
+            <td>
+                <input type="text" th:field="*{amount}" id="amount" placeholder="Transfer Amount">
+                <span th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="reference">Reference Number</label></td>
+            <td>
+                <input type="text" th:field="*{referenceNumber}" id="reference-number" placeholder="Reference Number">
+                <span th:if="${#fields.hasErrors('referenceNumber')}" th:errors="*{referenceNumber}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Confirm">
+                <a th:href="@{/back-to-transaction(id=${idAccount})}">Back</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

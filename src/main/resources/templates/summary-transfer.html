@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome CDC</title>
+</head>
+<body>
+<h3>Fund Transfer Summary</h3>
+<span>Destination Account : </span><span th:if="${transfer != null}" th:text="${transfer.accountTo.accountNumber}"></span>
+<br>
+<span>Date : </span><span th:if="${transfer != null}" th:text="${#dates.format(transfer.transactionDate, 'dd-MM-yyyy')}"></span>
+<br>
+<span>Transfer Amount : </span><span th:if="${transfer != null}" th:text="${transfer.amount}"></span>
+<br>
+<span>Reference Number : </span><span th:if="${transfer != null}" th:text="${transfer.referenceNumber}"></span>
+<br>
+<span>Balance : </span><span th:if="${transfer != null}" th:text="${transfer.accountFrom.balance}"></span>
+<br>
+<span><a th:href="@{/fund-transfer(id=${transfer.accountFrom.id})}">Back</a></span>
+</body>
+</html>
