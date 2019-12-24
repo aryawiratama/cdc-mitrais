@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome CDC</title>
+</head>
+<body>
+<h3>Summary</h3>
+<span>Date : </span><span th:if="${withdraw != null}" th:text="${#dates.format(withdraw.transactionDate, 'dd-MM-yyyy')}"></span>
+<br>
+<span>Withdraw : </span><span th:if="${withdraw != null}" th:text="${withdraw.amount}"></span>
+<br>
+<span>Balance : </span><span th:if="${withdraw != null}" th:text="${withdraw.account.balance}"></span>
+<br>
+<span><a th:href="@{/withdraw-screen(id=${withdraw.account.id})}">Back</a></span>
+</body>
+</html>

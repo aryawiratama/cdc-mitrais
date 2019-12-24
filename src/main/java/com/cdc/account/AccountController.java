@@ -33,6 +33,7 @@ public class AccountController {
         Optional<Account> account = accountDAO.findAccountByAccountNumberAndPin(wrapper.getAccountNumber(), wrapper.getPin());
         if (account.isPresent()) {
             ra.addFlashAttribute("name", account.get().getName());
+            ra.addFlashAttribute("id_account", account.get().getId());
             return "redirect:/transaction-screen";
         }
         model.addAttribute("errorMessage", "Invalid Account Number/PIN");
